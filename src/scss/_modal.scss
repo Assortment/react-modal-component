@@ -1,0 +1,65 @@
+/**
+ * MODAL COMPONENT
+ */
+
+.c-modal-cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10; // This must be at a higher index to the rest of your page content
+  transform: translateZ(0);
+  background-color: rgba(#000, 0.15);
+}
+
+.c-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1em;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,.4);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  @media screen and (min-width: 500px) {
+    left: 50%;
+    top: 50%;
+    height: auto;
+    transform: translate(-50%, -50%);
+    max-width: 30em;
+    max-height: calc(100% - 1em);
+  }
+}
+
+.c-modal__close {
+  position: relative;
+  float: right;
+  padding: 0;
+  line-height: 1;
+  background: 0;
+  border: 0;
+  box-shadow: 0;
+  cursor: pointer;
+}
+
+.c-modal__close-text {
+  padding-right: 1.25em;
+}
+
+.c-modal__close-icon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  margin-left: .25em;
+  font-size: 1.5rem;
+}
+
+.c-modal__body {
+  clear: right;
+  padding-top: .25em;
+}
