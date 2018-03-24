@@ -9,12 +9,16 @@ class Modal extends Component {
     this.setState({ isOpen: true }, () => {
       this.closeButton.focus();
     });
+    this.toggleScrollLock();
   }
 
   onClose = () => {
     this.setState({ isOpen: false });
     this.openButton.focus();
+    this.toggleScrollLock();
   }
+
+  toggleScrollLock = () => document.querySelector('html').classList.toggle('u-lock-scroll');
 
   render() {
     const { isOpen } = this.state;
