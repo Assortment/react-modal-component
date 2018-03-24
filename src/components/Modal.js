@@ -27,12 +27,13 @@ class Modal extends Component {
         <ModalTrigger
           onOpen={this.onOpen}
           buttonRef={n => this.openButton = n}
+          text="This is a button to trigger the Modal"
         />
         {isOpen &&
           <ModalContent
             ariaLabel="A label describing the Modal's current content"
-          onClose={this.onClose}
-          buttonRef={n => this.closeButton = n}
+            onClose={this.onClose}
+            buttonRef={n => this.closeButton = n}
           />
         }
       </Fragment>
