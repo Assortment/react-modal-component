@@ -6,11 +6,14 @@ class Modal extends Component {
   state = { isOpen: false }
 
   onOpen = () => {
-    this.setState({ isOpen: true });
+    this.setState({ isOpen: true }, () => {
+      this.closeButton.focus();
+    });
   }
 
   onClose = () => {
     this.setState({ isOpen: false });
+    this.openButton.focus();
   }
 
   render() {
@@ -19,11 +22,13 @@ class Modal extends Component {
       <Fragment>
         <ModalTrigger
           onOpen={this.onOpen}
+          buttonRef={n => this.openButton = n}
         />
         {isOpen &&
           <ModalContent
             ariaLabel="A label describing the Modal's current content"
-            onClose={this.onClose}
+          onClose={this.onClose}
+          buttonRef={n => this.closeButton = n}
           />
         }
       </Fragment>

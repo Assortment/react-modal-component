@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 const ModalContent = ({
   ariaLabel,
+  buttonRef,
   onClose
 }) => {
   const onKeyDown = ({ keyCode }) => keyCode === 27 && onClose();
@@ -16,7 +17,7 @@ const ModalContent = ({
       onKeyDown={onKeyDown}
     >
       <div className="c-modal">
-        <button className="c-modal__close" aria-label="Close Modal" onClick={onClose}>
+        <button className="c-modal__close" aria-label="Close Modal" onClick={onClose} ref={buttonRef}>
           <span className="u-hide-visually">Close</span>
           <svg viewBox="0 0 40 40" className="c-modal__close-icon">
             <path d="M 10,10 L 30,30 M 30,10 L 10,30"></path>
