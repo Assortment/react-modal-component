@@ -18,6 +18,8 @@ class Modal extends Component {
     this.toggleScrollLock();
   }
 
+  onKeyDown = ({ keyCode }) => keyCode === 27 && this.onClose();
+
   toggleScrollLock = () => document.querySelector('html').classList.toggle('u-lock-scroll');
 
   render() {
@@ -34,6 +36,7 @@ class Modal extends Component {
             ariaLabel="A label describing the Modal's current content"
             onClose={this.onClose}
             buttonRef={n => this.closeButton = n}
+            onKeyDown={this.onKeyDown}
           />
         }
       </Fragment>

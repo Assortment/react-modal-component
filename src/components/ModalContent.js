@@ -4,10 +4,10 @@ import ReactDOM from 'react-dom';
 const ModalContent = ({
   ariaLabel,
   buttonRef,
-  onClose
+  onClose,
+  onKeyDown
 }) => {
   let modalNode;
-  const onKeyDown = ({ keyCode }) => keyCode === 27 && onClose();
 
   const onClickAway = (e) => {
     if (modalNode && modalNode.contains(e.target)) return;
