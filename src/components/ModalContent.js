@@ -1,9 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const ModalContent = ({ onClose }) => {
+const ModalContent = ({
+  ariaLabel,
+  onClose
+}) => {
   return ReactDOM.createPortal(
-    <aside className="c-modal-cover" role="dialog" aria-label="A label describing the Modal's current content" tabIndex="-1">
+    <aside
+      className="c-modal-cover"
+      role="dialog"
+      aria-label={ariaLabel}
+      tabIndex="-1"
+    >
       <div className="c-modal">
         <button className="c-modal__close" aria-label="Close Modal" onClick={onClose}>
           <span className="u-hide-visually">Close</span>

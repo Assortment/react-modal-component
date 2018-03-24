@@ -17,8 +17,15 @@ class Modal extends Component {
     const { isOpen } = this.state;
     return (
       <Fragment>
-        <ModalTrigger onOpen={this.onOpen} />
-        {isOpen && <ModalContent onClose={this.onClose} />}
+        <ModalTrigger
+          onOpen={this.onOpen}
+        />
+        {isOpen &&
+          <ModalContent
+            ariaLabel="A label describing the Modal's current content"
+            onClose={this.onClose}
+          />
+        }
       </Fragment>
     );
   }
