@@ -6,7 +6,13 @@ const ModalContent = ({
   buttonRef,
   onClose
 }) => {
+  let modalNode;
   const onKeyDown = ({ keyCode }) => keyCode === 27 && onClose();
+
+  const onClickAway = (e) => {
+    if (modalNode && modalNode.contains(e.target)) return;
+    onClose();
+  };
 
   return ReactDOM.createPortal(
     <aside
@@ -15,8 +21,10 @@ const ModalContent = ({
       aria-label={ariaLabel}
       tabIndex="-1"
       onKeyDown={onKeyDown}
+      onClick={onClickAway}
+
     >
-      <div className="c-modal">
+      <div className="c-modal" ref={n => modalNode = n}>
         <button className="c-modal__close" aria-label="Close Modal" onClick={onClose} ref={buttonRef}>
           <span className="u-hide-visually">Close</span>
           <svg viewBox="0 0 40 40" className="c-modal__close-icon">
