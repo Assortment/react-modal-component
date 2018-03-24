@@ -19,10 +19,10 @@ const ModalContent = ({
       className="c-modal-cover"
       role="dialog"
       aria-label={ariaLabel}
+      aria-modal="true"
       tabIndex="-1"
       onKeyDown={onKeyDown}
       onClick={onClickAway}
-
     >
       <div className="c-modal" ref={n => modalNode = n}>
         <button className="c-modal__close" aria-label="Close Modal" onClick={onClose} ref={buttonRef}>
