@@ -24,16 +24,18 @@ class Modal extends Component {
 
   render() {
     const { isOpen } = this.state;
+    const { ariaLabel, children, triggerText } = this.props;
     return (
       <Fragment>
         <ModalTrigger
           onOpen={this.onOpen}
           buttonRef={n => this.openButton = n}
-          text="This is a button to trigger the Modal"
+          text={triggerText}
         />
         {isOpen &&
           <ModalContent
-            ariaLabel="A label describing the Modal's current content"
+            ariaLabel={ariaLabel}
+            content={children}
             onClose={this.onClose}
             buttonRef={n => this.closeButton = n}
             onKeyDown={this.onKeyDown}
