@@ -8,6 +8,7 @@ const ModalContent = ({
   modalRef,
   onClickAway,
   onClose,
+  onFocus,
   onKeyDown
 }) => {
   return ReactDOM.createPortal(
@@ -17,6 +18,7 @@ const ModalContent = ({
       aria-label={ariaLabel}
       aria-modal="true"
       tabIndex="-1"
+      onFocus={onFocus}
       onKeyDown={onKeyDown}
       onClick={onClickAway}
     >

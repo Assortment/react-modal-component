@@ -23,6 +23,12 @@ class Modal extends Component {
     this.onClose();
   };
 
+  onFocus = (e) => {
+    if (!this.modalNode.contains(e.target)) {
+      this.closeButtonNode.focus();
+    }
+  };
+
   onKeyDown = ({ keyCode }) => keyCode === 27 && this.onClose();
 
   toggleScrollLock = () => document.querySelector('html').classList.toggle('u-lock-scroll');
@@ -45,6 +51,7 @@ class Modal extends Component {
             content={children}
             onClickAway={this.onClickAway}
             onClose={this.onClose}
+            onFocus={this.onFocus}
             onKeyDown={this.onKeyDown}
           />
         }
