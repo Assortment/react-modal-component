@@ -3,20 +3,25 @@ import ModalTrigger from './ModalTrigger';
 import ModalContent from './ModalContent';
 
 class Modal extends Component {
-  state = { isOpen: false }
+  state = { isOpen: false };
 
   onOpen = () => {
     this.setState({ isOpen: true }, () => {
-      this.closeButton.focus();
+      this.closeButtonNode.focus();
     });
     this.toggleScrollLock();
-  }
+  };
 
   onClose = () => {
     this.setState({ isOpen: false });
-    this.openButton.focus();
+    this.openButtonNode.focus();
     this.toggleScrollLock();
-  }
+  };
+
+  onClickAway = (e) => {
+    if (this.modalNode && this.modalNode.contains(e.target)) return;
+    this.onClose();
+  };
 
   onKeyDown = ({ keyCode }) => keyCode === 27 && this.onClose();
 
@@ -29,15 +34,17 @@ class Modal extends Component {
       <Fragment>
         <ModalTrigger
           onOpen={this.onOpen}
-          buttonRef={n => this.openButton = n}
+          buttonRef={n => this.openButtonNode = n}
           text={triggerText}
         />
         {isOpen &&
           <ModalContent
             ariaLabel={ariaLabel}
+            buttonRef={n => this.closeButtonNode = n}
+            modalRef={n => this.modalNode = n}
             content={children}
+            onClickAway={this.onClickAway}
             onClose={this.onClose}
-            buttonRef={n => this.closeButton = n}
             onKeyDown={this.onKeyDown}
           />
         }
