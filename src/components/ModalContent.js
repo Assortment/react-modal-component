@@ -33,7 +33,7 @@ const ModalContent = ({
         <div className="c-modal__body">{content}</div>
       </div>
     </aside>,
-    document.querySelector('body')
+    document.body
   );
 }
 
