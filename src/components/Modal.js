@@ -35,7 +35,7 @@ class Modal extends Component {
 
   render() {
     const { isOpen } = this.state;
-    const { ariaLabel, children, triggerText } = this.props;
+    const { ariaLabel, children, triggerText, role } = this.props;
     return (
       <Fragment>
         <ModalTrigger
@@ -53,6 +53,7 @@ class Modal extends Component {
             onClose={this.onClose}
             onFocus={this.onFocus}
             onKeyDown={this.onKeyDown}
+            role={role}
           />
         }
       </Fragment>

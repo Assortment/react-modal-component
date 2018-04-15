@@ -10,7 +10,8 @@ const App = () => {
   );
   const modalProps = {
     ariaLabel: 'A label describing the Modal\'s current content',
-    triggerText: 'This is a button to trigger the Modal'
+    triggerText: 'This is a button to trigger the Modal',
+    role: 'alertdialog'
   };
 
   return (

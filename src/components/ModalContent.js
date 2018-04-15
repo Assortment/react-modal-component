@@ -9,12 +9,13 @@ const ModalContent = ({
   onClickAway,
   onClose,
   onFocus,
-  onKeyDown
+  onKeyDown,
+  role = 'dialog'
 }) => {
   return ReactDOM.createPortal(
     <aside
       className="c-modal-cover"
-      role="dialog"
+      role={role}
       aria-label={ariaLabel}
       aria-modal="true"
       tabIndex="-1"
