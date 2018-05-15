@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ReactFocusTrap from 'focus-trap-react';
 
 const ModalContent = ({
   ariaLabel,
@@ -8,19 +9,16 @@ const ModalContent = ({
   modalRef,
   onClickAway,
   onClose,
-  onFocus,
-  onKeyDown,
   role = 'dialog'
 }) => {
   return ReactDOM.createPortal(
-    <aside
+    <ReactFocusTrap
+      tag="aside"
+      focusTrapOptions={{ onDeactivate: onClose }}
       className="c-modal-cover"
       role={role}
       aria-label={ariaLabel}
       aria-modal="true"
-      tabIndex="-1"
-      onFocus={onFocus}
-      onKeyDown={onKeyDown}
       onClick={onClickAway}
     >
       <div className="c-modal" ref={modalRef}>
@@ -32,7 +30,7 @@ const ModalContent = ({
         </button>
         <div className="c-modal__body">{content}</div>
       </div>
-    </aside>,
+    </ReactFocusTrap>,
     document.body
   );
 }
